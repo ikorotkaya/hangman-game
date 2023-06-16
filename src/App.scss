@@ -89,10 +89,13 @@ html,
   font-size: 4rem;
   font-weight: bold;
   text-transform: uppercase;
+  align-items: center;
   
   &__letter-block {
     border-bottom: .1em solid black;
-
+    width: 5rem;
+    display: flex;
+    justify-content: center;
   }
 }
 

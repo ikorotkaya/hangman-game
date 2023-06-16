@@ -1,11 +1,11 @@
 import { Letters } from "./Letters"
 
-export function HangmanWord() {
+export function HangmanWord({guessedLetters, wordToGuess}) {
 
 
   return (
     <div className="hangman-word">
-        <Letters />
+        <Letters guessedLetters={guessedLetters} wordToGuess={wordToGuess}/>
     </div>
   )
 }
