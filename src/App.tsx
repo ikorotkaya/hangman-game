@@ -5,13 +5,15 @@ import { HangmanWord } from './components/HangmanWord';
 import { Keyboard } from './components/Keyboard';
 import './App.scss';
 
+function getNewWord() {
+  return words[Math.floor(Math.random() * words.length)]
+}
+
 function App() {
   // get a random word from the word list
   // get guessed letters from user
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
-  const [wordToGuess, setWordToGuess] = useState(() => {
-    return words[Math.floor(Math.random() * words.length)]
-  });
+  const [wordToGuess, setWordToGuess] = useState(getNewWord);
 
   const incorrectLetters = guessedLetters.filter((letter) => !wordToGuess.includes(letter))
 
@@ -32,6 +34,23 @@ function App() {
 
       e.preventDefault();
       addGuessedLetter(key);
+    }
+
+    document.addEventListener('keypress', handler);
+
+    return () => {
+      document.removeEventListener('keypress', handler);
+    }
+  }, [guessedLetters])
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      const key = e.key;
+      if (key !== "Enter") return;
+
+      e.preventDefault();
+      setGuessedLetters([]);
+      setWordToGuess(getNewWord());
     }
 
     document.addEventListener('keypress', handler);
