@@ -33,9 +33,9 @@ html,
   
 
   &__title {
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
-    background-color: bisque;
+    // background-color: bisque;
     width: 100%;
     font-weight: bold;
     padding: 1rem;
@@ -117,15 +117,15 @@ html,
   aspect-ratio: 2/1;
 }
 
-.button:active:not(:disabled) {
+.button.active {
   background-color: rgb(236, 95, 198);
   color: white;
 }
 
-.button:disabled {
+.button.disabled {
   opacity: 0.2;
+  cursor: default;
 }
-
 
 .button:hover:not(:disabled), 
 .button:focus:not(:disabled) {

@@ -1,11 +1,17 @@
 import { Letters } from "./Letters"
 
-export function HangmanWord({guessedLetters, wordToGuess}) {
+type HangmanWordProps = {
+  wordToGuess: string;
+  guessedLetters: string[];
+  reveal?: boolean;
+}
+
+export function HangmanWord({guessedLetters, wordToGuess, reveal = false}: HangmanWordProps) {
 
 
   return (
     <div className="hangman-word">
-        <Letters guessedLetters={guessedLetters} wordToGuess={wordToGuess}/>
+        <Letters reveal={reveal} guessedLetters={guessedLetters} wordToGuess={wordToGuess}/>
     </div>
   )
 }
