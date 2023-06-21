@@ -4,12 +4,14 @@ import { HangmanDrawing } from './components/HangmanDrawing';
 import { HangmanWord } from './components/HangmanWord';
 import { Keyboard } from './components/Keyboard';
 import './App.scss';
+import Confetti from 'react-confetti'
 
 function getNewWord() {
   return words[Math.floor(Math.random() * words.length)]
 }
 
-function App() {
+export default function App() {
+
   // get a random word from the word list
   // get guessed letters from user
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
@@ -63,8 +65,9 @@ function App() {
   return (
     <div className="app">
       <div className="app__title">
-        {isWinner && 'You win! Refresh the page to play again'}
+        {isWinner && 'You win! Refresh the page to play again' && <Confetti />}
         {isLoser && 'Nice try! Refresh the page to try again'}
+        {!isLoser && !isWinner && 'Press any key to guess a letter'}
       </div>
       <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
       <HangmanWord 
@@ -84,5 +87,3 @@ function App() {
 
   )
 }
-
-export default App

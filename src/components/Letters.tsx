@@ -1,4 +1,3 @@
-
 type HangmanWordProps = {
   wordToGuess: string;
   guessedLetters: string[];
