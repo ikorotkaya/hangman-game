@@ -33,7 +33,7 @@ html,
   
 
   &__title {
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
     // background-color: bisque;
     width: 100%;
@@ -86,14 +86,14 @@ html,
 .letters-container {
   display: flex;
   gap: 10px;
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: bold;
   text-transform: uppercase;
   align-items: center;
   
   &__letter-block {
-    border-bottom: .1em solid black;
-    width: 5rem;
+    border-bottom: .1em solid rgb(0, 0, 0);
+    width: 4rem;
     display: flex;
     justify-content: center;
   }
@@ -101,20 +101,20 @@ html,
 
 .keyboard-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(55px, 1fr));
+  gap: 1.1rem;
 }
 
 .button {
   width: 100%;
   border: 2px solid black;
-  border-radius: 15px;
+  border-radius: 10px;
   background: none;
   font-size: 1.5rem;
   cursor: pointer;
   color: black;
   text-transform: uppercase;
-  aspect-ratio: 2/1;
+  aspect-ratio: 1/1;
 }
 
 .button.active {

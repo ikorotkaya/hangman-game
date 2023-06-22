@@ -5,6 +5,7 @@ import { HangmanWord } from './components/HangmanWord';
 import { Keyboard } from './components/Keyboard';
 import './App.scss';
 import Confetti from 'react-confetti'
+import { Language } from './components/Language';
 
 function getNewWord() {
   return words[Math.floor(Math.random() * words.length)]
@@ -82,6 +83,9 @@ export default function App() {
           inactiveLetters={incorrectLetters}
           addGuessedLetter={addGuessedLetter} 
         />
+      </div>
+      <div className='app_language'>
+        <Language />
       </div>
     </div>
 
