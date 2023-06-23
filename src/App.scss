@@ -30,7 +30,6 @@ html,
   gap: 2rem;
   margin: 0 auto;
   align-items: center;
-  
 
   &__title {
     font-size: 1.5rem;
@@ -45,6 +44,22 @@ html,
   &__keyboard {
     align-self: stretch;
   }
+}
+
+.app__reset button{
+  margin-top: 20px;
+  padding: 20px;
+  border: 2px solid rgb(107, 107, 107);
+  border-radius: 10px;
+  background: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: black;
+  text-transform: uppercase;
+}
+
+.app__reset button:hover {
+  background-color: #1f6ac6;
 }
 
 .initial-drawing {
@@ -118,7 +133,7 @@ html,
 }
 
 .button.active {
-  background-color: rgb(236, 95, 198);
+  background-color: #1f6ac6;
   color: white;
 }
 
@@ -129,5 +144,48 @@ html,
 
 .button:hover:not(:disabled), 
 .button:focus:not(:disabled) {
-  background-color: rgb(236, 95, 198);
+  background-color: #1f6ac6;
 }
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #1f6ac6;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #1f6ac6;}

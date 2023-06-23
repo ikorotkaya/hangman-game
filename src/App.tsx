@@ -1,15 +1,14 @@
 import { useCallback, useEffect, useState } from 'react'
-import words from './wordList.json'
 import { HangmanDrawing } from './components/HangmanDrawing';
 import { HangmanWord } from './components/HangmanWord';
 import { Keyboard } from './components/Keyboard';
+import { Language } from './components/Language';
+import { Reset } from './components/Reset';
+
 import './App.scss';
 import Confetti from 'react-confetti'
-import { Language } from './components/Language';
-
-function getNewWord() {
-  return words[Math.floor(Math.random() * words.length)]
-}
+import getNewWord from './modules/getNewWord';
+import getLanguage from './modules/getLanguage';
 
 export default function App() {
 
@@ -19,6 +18,7 @@ export default function App() {
   const [wordToGuess, setWordToGuess] = useState(getNewWord);
   const [showConfetti, setShowConfetti] = useState(false);
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+  const [language, setLanguage] = useState(getLanguage);
 
   // get incorrect letters from guessed letters
   const incorrectLetters = guessedLetters.filter((letter) => !wordToGuess.includes(letter))
@@ -82,7 +82,7 @@ export default function App() {
       setTimeout(() => {
         setShowConfetti(false)
       }
-      , 5000)
+      , 6000)
     }
   }, [isWinner])
 
@@ -93,6 +93,9 @@ export default function App() {
 
   return (
     <div className="app">
+      <div className='app__reset'>
+        <Reset />
+      </div>
       <div className="app__title">
         {showConfetti && <Confetti />}
         {isWinner && 'You win! Refresh the page to play again'}
@@ -113,7 +116,7 @@ export default function App() {
           addGuessedLetter={addGuessedLetter} 
         />
       </div>
-      <div className='app_language'>
+      <div className='app__language'>
         <Language />
       </div>
     </div>
