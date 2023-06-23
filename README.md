@@ -1,4 +1,4 @@
-### Hangman React App
+## Hangman React App
 
 [Link](https://calm-buttercream.netlify.app/)
 
@@ -6,10 +6,10 @@ Welcome to Hangman, a simple React app built with TypeScript! This project is a 
 
 ### Technologies Used
 
-- React: A JavaScript library for building user interfaces.
-- TypeScript: A statically-typed superset of JavaScript, adding type annotations and other features.
-- CSS: Cascading Style Sheets for styling the app.
-- HTML: Hypertext Markup Language for structuring the app.
+- *React*: A JavaScript library for building user interfaces.
+- *TypeScript*: A statically-typed superset of JavaScript, adding type annotations and other features.
+- *SCSS*: Cascading Style Sheets for styling the app.
+- *HTML*: Hypertext Markup Language for structuring the app.
 
 ### Steps
 
