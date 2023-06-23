@@ -17,18 +17,24 @@ export default function App() {
   // get guessed letters from user
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
   const [wordToGuess, setWordToGuess] = useState(getNewWord);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
+  // get incorrect letters from guessed letters
   const incorrectLetters = guessedLetters.filter((letter) => !wordToGuess.includes(letter))
 
+  // check if user has lost
   const isLoser = incorrectLetters.length >= 6;
   const isWinner = wordToGuess.split('').every(letter => guessedLetters.includes(letter));
 
+  // add guessed letter to guessed letters
   const addGuessedLetter = useCallback((letter: string) => {
       if (guessedLetters.includes(letter) || isLoser || isWinner) return;
 
       setGuessedLetters(currentLetters => [...currentLetters, letter])
     }, [guessedLetters, isLoser, isWinner])
 
+  // add event listener for keypress event
   useEffect(() => {
     // add event listener for keypress event
     const handler = (e: KeyboardEvent) => {
@@ -46,6 +52,7 @@ export default function App() {
     }
   }, [guessedLetters])
 
+  // add event listener for enter key
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       const key = e.key;
@@ -63,10 +70,32 @@ export default function App() {
     }
   }, [guessedLetters])
 
+
+  function handleWindowSize() {
+    setWindowSize({width: window.innerWidth, height: window.innerHeight});
+    console.log(window.innerWidth, window.innerHeight)
+  }
+
+  useEffect(() => {
+    if (isWinner) {
+      setShowConfetti(true)
+      setTimeout(() => {
+        setShowConfetti(false)
+      }
+      , 5000)
+    }
+  }, [isWinner])
+
+
+  useEffect(() => {
+    window.onresize = () => handleWindowSize();
+  }, [])
+
   return (
     <div className="app">
       <div className="app__title">
-        {isWinner && 'You win! Refresh the page to play again' && <Confetti />}
+        {showConfetti && <Confetti />}
+        {isWinner && 'You win! Refresh the page to play again'}
         {isLoser && 'Nice try! Refresh the page to try again'}
         {!isLoser && !isWinner && 'Press any key to guess a letter'}
       </div>
