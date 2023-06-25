@@ -1,0 +1,8 @@
+{
+  "title": "Henker",
+  "description": {
+    "win": "Netter Versuch! Aktualisieren Sie die Seite, um es erneut zu versuchen",
+    "lose": "Wechseln Sie die Sprache zwischen Englisch und Deutsch mit den Schaltflächen oben.",
+    "play": "Drücken Sie eine beliebige Taste, um einen Buchstaben zu erraten"
+  }
+}

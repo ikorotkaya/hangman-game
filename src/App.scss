@@ -24,7 +24,7 @@ html,
 }
 
 .app {
-  max-width: 800px;
+  max-width: 700px;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -44,22 +44,30 @@ html,
   &__keyboard {
     align-self: stretch;
   }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
 }
 
-.app__reset button{
-  margin-top: 20px;
-  padding: 20px;
+.header__reset button{
+  margin-top: 10px;
+  padding: 10px;
   border: 2px solid rgb(107, 107, 107);
   border-radius: 10px;
   background: none;
-  font-size: 1.5rem;
+  font-size: 1rem;
   cursor: pointer;
   color: black;
   text-transform: uppercase;
 }
 
-.app__reset button:hover {
+.header__reset button:hover {
   background-color: #1f6ac6;
+  color: white;
 }
 
 .initial-drawing {
@@ -152,11 +160,16 @@ html,
 .dropdown-container {
   background-color: #1f6ac6;
   color: white;
-  padding: 10px;
+  padding: 5px;
   font-size: 14px;
   border: none;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
   gap: 20px;
+
+  &__option {
+    border-radius: 10px;
+    margin: 0%;
+  }
 }

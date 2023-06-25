@@ -1,16 +1,32 @@
-import { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { HangmanDrawing } from './components/HangmanDrawing';
 import { HangmanWord } from './components/HangmanWord';
 import { Keyboard } from './components/Keyboard';
 import { DropdownLanguage } from './components/DropdownLanguage';
 import { Reset } from './components/Reset';
 
+import { useTranslation, withTranslation } from "react-i18next";
+
 import './App.scss';
 import Confetti from 'react-confetti'
 import getNewWord from './modules/getNewWord';
-import getLanguage from './modules/getLanguage';
 
+// use hoc for class based components
+class LegacyWelcomeClass extends React.Component <{}, { [key: string]: any}>  {
+  render() {
+    const { t } = this.props;
+    return <h2>{t("title")}</h2>;
+  }
+}
+const Welcome = withTranslation()(LegacyWelcomeClass);
+
+// App uses the hook
 export default function App() {
+  const {t, i18n} = useTranslation();
+
+  const changeLanguage = (lng: any) => {
+    i18n.changeLanguage(lng);
+  };
 
   // get a random word from the word list
   // get guessed letters from user
@@ -18,7 +34,6 @@ export default function App() {
   const [wordToGuess, setWordToGuess] = useState(getNewWord);
   const [showConfetti, setShowConfetti] = useState(false);
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
-  const [language, setLanguage] = useState(getLanguage);
 
   // get incorrect letters from guessed letters
   const incorrectLetters = guessedLetters.filter((letter) => !wordToGuess.includes(letter))
@@ -93,14 +108,20 @@ export default function App() {
 
   return (
     <div className="app">
-      <div className='app__reset'>
-        <Reset />
+      <div className="app__header">
+      <Welcome />
+        <div className='header__language'>
+          <DropdownLanguage />
+        </div>
+        <div className='header__reset'>
+          <Reset />
+        </div>
       </div>
       <div className="app__title">
         {showConfetti && <Confetti />}
-        {isWinner && 'You win! Refresh the page to play again'}
-        {isLoser && 'Nice try! Refresh the page to try again'}
-        {!isLoser && !isWinner && 'Press any key to guess a letter'}
+        {isWinner && t('description.win')}
+        {isLoser && t('description.lose')}
+        {!isLoser && !isWinner && t('description.play')}
       </div>
       <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
       <HangmanWord 
@@ -115,9 +136,6 @@ export default function App() {
           inactiveLetters={incorrectLetters}
           addGuessedLetter={addGuessedLetter} 
         />
-      </div>
-      <div className='app__language'>
-        <DropdownLanguage />
       </div>
     </div>
 
