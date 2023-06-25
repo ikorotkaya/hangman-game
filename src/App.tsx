@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { HangmanDrawing } from './components/HangmanDrawing';
 import { HangmanWord } from './components/HangmanWord';
 import { Keyboard } from './components/Keyboard';
-import { Language } from './components/Language';
+import { DropdownLanguage } from './components/DropdownLanguage';
 import { Reset } from './components/Reset';
 
 import './App.scss';
@@ -117,7 +117,7 @@ export default function App() {
         />
       </div>
       <div className='app__language'>
-        <Language />
+        <DropdownLanguage />
       </div>
     </div>
 
