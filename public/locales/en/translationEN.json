@@ -1,5 +1,6 @@
 {
   "title": "Hangman",
+  "language": "English",
   "description": {
     "win": "You won! Refresh the page to play again",
     "lose": "Switch language between english and german using buttons above.",

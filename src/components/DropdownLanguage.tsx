@@ -1,5 +1,4 @@
-import { useState } from "react"
-import { useTranslation, withTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 export function DropdownLanguage() {
   const {t, i18n} = useTranslation();
@@ -7,13 +6,7 @@ export function DropdownLanguage() {
   const changeLanguage = (lng: any) => {
     i18n.changeLanguage(lng);
   };
-
-  const options = [
-    { value: 'en', label: 'English' },
-    { value: 'es', label: 'Spanish' },
-    { value: 'de', label: 'German' },
-  ];
-
+  
   const handleChange = (event: any) => {
     const language = event.target.value;
     changeLanguage(language);
@@ -24,8 +17,8 @@ export function DropdownLanguage() {
       <label className="dropdown-container">
         <p className="text">Choose language</p>
         <select className="dropdown-container__option" value={i18n.language} onChange={handleChange}>
-          {options.map((option) => (
-            <option value={option.value}>{option.label}</option>
+          {Object.keys(i18n.options.resources).map((language) => (
+            <option value={language}>{t("language", { lng: language })}</option>
           ))}
         </select>
       </label>
