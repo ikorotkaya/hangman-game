@@ -1,9 +1,15 @@
 {
   "title": "Hangman",
   "language": "English",
+  "reset": "Reset",
+  "chooseLanguage": "Choose language",
   "description": {
     "win": "You won! Refresh the page to play again",
-    "lose": "Switch language between english and german using buttons above.",
+    "lose": "You lost! Refresh the page to try again",
     "play": "Press any key to guess a letter"
-  }
+  },
+  "wordList": [
+    "able",
+    "absolute"
+  ]
 }

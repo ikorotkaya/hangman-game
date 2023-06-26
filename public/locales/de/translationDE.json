@@ -1,9 +1,16 @@
 {
   "title": "Henker",
   "language": "Deutsch",
+  "reset": "Zurücksetzen",
+  "chooseLanguage": "Wählen Sie eine Sprache",
   "description": {
-    "win": "Netter Versuch! Aktualisieren Sie die Seite, um es erneut zu versuchen",
-    "lose": "Wechseln Sie die Sprache zwischen Englisch und Deutsch mit den Schaltflächen oben.",
-    "play": "Drücken Sie eine beliebige Taste, um einen Buchstaben zu erraten"
-  }
+    "win": "Sie haben gewonnen! Aktualisieren Sie die Seite, um eine neue Runde zu starten",
+    "lose": "Sie haben verloren! Aktualisieren Sie die Seite, um es erneut zu versuchen",
+    "play": "Drücken Sie eine Taste, um einen Buchstaben zu erraten"
+  },
+  "wordList": [
+    "Meister",
+    "Wissen",
+    "Führen"
+  ]
 }

@@ -15,10 +15,10 @@ export function DropdownLanguage() {
   return (
     <div className="dropdown">
       <label className="dropdown-container">
-        <p className="text">Choose language</p>
+        <p className="text">{t('chooseLanguage')}</p>
         <select className="dropdown-container__option" value={i18n.language} onChange={handleChange}>
-          {Object.keys(i18n.options.resources).map((language) => (
-            <option value={language}>{t("language", { lng: language })}</option>
+          {Object.keys(i18n.options.resources).map((language, i) => (
+            <option value={language} key={i}>{t("language", { lng: language })}</option>
           ))}
         </select>
       </label>

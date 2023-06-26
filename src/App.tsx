@@ -3,18 +3,17 @@ import { HangmanDrawing } from './components/HangmanDrawing';
 import { HangmanWord } from './components/HangmanWord';
 import { Keyboard } from './components/Keyboard';
 import { DropdownLanguage } from './components/DropdownLanguage';
-import { Reset } from './components/Reset';
 
 import { useTranslation, withTranslation } from "react-i18next";
 
 import './App.scss';
 import Confetti from 'react-confetti'
-import getNewWord from './modules/getNewWord';
+// import getNewWord from './modules/getNewWord';
 
 // use hoc for class based components
 class LegacyWelcomeClass extends React.Component <{}, { [key: string]: any}>  {
   render() {
-    const { t } = this.props;
+    const { t }: any = this.props;
     return <h2>{t("title")}</h2>;
   }
 }
@@ -24,16 +23,19 @@ const Welcome = withTranslation()(LegacyWelcomeClass);
 export default function App() {
   const {t, i18n} = useTranslation();
 
-  const changeLanguage = (lng: any) => {
-    i18n.changeLanguage(lng);
-  };
+  const getNewWord = () => {
+    console.log(i18n.language)
+    const words = t('wordList', { returnObjects: true }) as string[];
+    // console.log("words: ", words)
+    return words[Math.floor(Math.random() * words.length)]
+  }
 
-  // get a random word from the word list
-  // get guessed letters from user
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
-  const [wordToGuess, setWordToGuess] = useState(getNewWord);
+  const [wordToGuess, setWordToGuess] = useState(getNewWord());
   const [showConfetti, setShowConfetti] = useState(false);
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+
+  console.log(wordToGuess)
 
   // get incorrect letters from guessed letters
   const incorrectLetters = guessedLetters.filter((letter) => !wordToGuess.includes(letter))
@@ -42,12 +44,10 @@ export default function App() {
   const isLoser = incorrectLetters.length >= 6;
   const isWinner = wordToGuess.split('').every(letter => guessedLetters.includes(letter));
 
-  // add guessed letter to guessed letters
   const addGuessedLetter = useCallback((letter: string) => {
-      if (guessedLetters.includes(letter) || isLoser || isWinner) return;
-
-      setGuessedLetters(currentLetters => [...currentLetters, letter])
-    }, [guessedLetters, isLoser, isWinner])
+    if (guessedLetters.includes(letter) || isLoser || isWinner) return;
+    setGuessedLetters(currentLetters => [...currentLetters, letter])
+  }, [guessedLetters, isLoser, isWinner])
 
   // add event listener for keypress event
   useEffect(() => {
@@ -67,6 +67,10 @@ export default function App() {
     }
   }, [guessedLetters])
 
+  useEffect(() => {
+    handleReset()
+  }, [i18n.language])
+
   // add event listener for enter key
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -85,6 +89,12 @@ export default function App() {
     }
   }, [guessedLetters])
 
+    // add event listener for click event on reset button
+
+  const handleReset = () => {
+    setGuessedLetters([]);
+    setWordToGuess(getNewWord());
+  }
 
   function handleWindowSize() {
     setWindowSize({width: window.innerWidth, height: window.innerHeight});
@@ -114,7 +124,7 @@ export default function App() {
           <DropdownLanguage />
         </div>
         <div className='header__reset'>
-          <Reset />
+        <button onClick={() => handleReset()}>{t('reset')}</button>
         </div>
       </div>
       <div className="app__title">
