@@ -10,7 +10,7 @@ const HEAD = (
       right: "-30px",
     }}
   />
-)
+);
 
 const BODY = (
   <div
@@ -23,7 +23,7 @@ const BODY = (
       right: 0,
     }}
   />
-)
+);
 
 const RIGHT_ARM = (
   <div
@@ -38,7 +38,7 @@ const RIGHT_ARM = (
       transformOrigin: "left bottom",
     }}
   />
-)
+);
 
 const LEFT_ARM = (
   <div
@@ -53,7 +53,7 @@ const LEFT_ARM = (
       transformOrigin: "right bottom",
     }}
   />
-)
+);
 
 const RIGHT_LEG = (
   <div
@@ -68,7 +68,7 @@ const RIGHT_LEG = (
       transformOrigin: "left bottom",
     }}
   />
-)
+);
 
 const LEFT_LEG = (
   <div
@@ -83,16 +83,15 @@ const LEFT_LEG = (
       transformOrigin: "right bottom",
     }}
   />
-)
+);
 
-const BODY_PARTS = [HEAD, BODY, RIGHT_ARM, LEFT_ARM, RIGHT_LEG, LEFT_LEG]
+const BODY_PARTS = [HEAD, BODY, RIGHT_ARM, LEFT_ARM, RIGHT_LEG, LEFT_LEG];
 
 type HangmanDrawingProps = {
-  numberOfGuesses: number
-}
+  numberOfGuesses: number;
+};
 
-export function HangmanDrawing({numberOfGuesses}: HangmanDrawingProps) {
-
+export function HangmanDrawing({ numberOfGuesses }: HangmanDrawingProps) {
   return (
     <div className="initial-drawing">
       <div className="initial-drawing__vertical_top_line" />
@@ -101,5 +100,5 @@ export function HangmanDrawing({numberOfGuesses}: HangmanDrawingProps) {
       <div className="initial-drawing__horisontal_bottom_line" />
       {BODY_PARTS.slice(0, numberOfGuesses)}
     </div>
-  )
+  );
 }

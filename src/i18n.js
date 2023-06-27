@@ -1,20 +1,20 @@
 import i18n from "i18next";
-import { initReactI18next } from 'react-i18next';
+import { initReactI18next } from "react-i18next";
 
-import Backend from 'i18next-http-backend';
-import LanguageDetector from 'i18next-browser-languagedetector';
+import Backend from "i18next-http-backend";
+import LanguageDetector from "i18next-browser-languagedetector";
 
-import translationEN from './locales/en/translationEN.json';
-import translationDE from './locales/de/translationDE.json';
+import translationEN from "./locales/en/translationEN.json";
+import translationDE from "./locales/de/translationDE.json";
 
 // the translations
 const resources = {
   en: {
-    translation: translationEN
+    translation: translationEN,
   },
   de: {
-    translation: translationDE
-  }
+    translation: translationDE,
+  },
 };
 
 i18n
@@ -27,7 +27,7 @@ i18n
     debug: true,
     lng: "en",
     interpolation: {
-      escapeValue: false // not needed for react as it escapes by default
+      escapeValue: false, // not needed for react as it escapes by default
     },
   });
 
