@@ -94,6 +94,7 @@ export default function App() {
   const handleReset = () => {
     setGuessedLetters([]);
     setWordToGuess(getNewWord());
+    setShowConfetti(false)
   }
 
   function handleWindowSize() {
