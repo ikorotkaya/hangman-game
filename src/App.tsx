@@ -27,8 +27,10 @@ export default function App() {
   const getNewWord = () => {
     console.log(i18n.language);
     const words = t("wordList", { returnObjects: true }) as string[];
+    const lowercaseWords = words.map(word => word.toLowerCase());
+    console.log("lowerWords: ", lowercaseWords)
     // console.log("words: ", words)
-    return words[Math.floor(Math.random() * words.length)];
+    return lowercaseWords[Math.floor(Math.random() * lowercaseWords.length)]
   };
 
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
