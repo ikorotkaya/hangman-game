@@ -1,4 +1,4 @@
-const KEYS = [...Array(26)].map((_, i) => String.fromCharCode(i + 97));
+import { useTranslation } from "react-i18next";
 
 type KeyboardProps= {
   activeLetters: string[]
@@ -9,9 +9,12 @@ type KeyboardProps= {
   }
 
 export function Keyboard({activeLetters, inactiveLetters, disabled, addGuessedLetter}: KeyboardProps) {
+  const {t} = useTranslation();
+  const keys = t("keyboard_letters", { returnObjects: true }) as string[];
+
   return (
     <div className="keyboard-container" >
-      {KEYS.map((key) => {
+      {keys.map((key) => {
         const isActive = activeLetters.includes(key);
         const isInactive = inactiveLetters.includes(key);
         return (
