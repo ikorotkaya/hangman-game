@@ -21,25 +21,27 @@ export function Keyboard({
 
   return (
     <div className="keyboard-container">
-      {keys.map((row) => {
-        return row.map((key) => {
-          const isActive = activeLetters.includes(key);
-          const isInactive = inactiveLetters.includes(key);
-          return (
-            <button
-              onClick={() => addGuessedLetter(key)}
-              className={
-                "button" +
-                (isActive ? " active" : "") +
-                (isInactive ? " disabled" : "")
-              }
-              disabled={isActive || isInactive || disabled}
-              key={key}
-            >
-              {key}
-            </button>
-          );
-        });
+      {keys.map((row, index) => {
+        return (
+          <div className="keyboard-container__keyboard-row" key={index}>
+            {row.map((letter) => {
+              const isActive = activeLetters.includes(letter);
+              const isInactive = inactiveLetters.includes(letter);
+              return (
+                <button
+                  key={letter}
+                  className={`button ${isActive ? "active" : ""} ${
+                    isInactive ? "inactive" : ""
+                  }`}
+                  disabled={disabled || isActive || isInactive}
+                  onClick={() => addGuessedLetter(letter)}
+                >
+                  {letter}
+                </button>
+              );
+            })}
+          </div>
+        );
       })}
     </div>
   );
