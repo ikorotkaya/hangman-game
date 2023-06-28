@@ -25,11 +25,8 @@ export default function App() {
   const { t, i18n } = useTranslation();
 
   const getNewWord = () => {
-    console.log(i18n.language);
     const words = t("wordList", { returnObjects: true }) as string[];
     const lowercaseWords = words.map((word) => word.toLowerCase());
-    console.log("lowerWords: ", lowercaseWords);
-    // console.log("words: ", words)
     return lowercaseWords[Math.floor(Math.random() * lowercaseWords.length)];
   };
 
@@ -38,7 +35,7 @@ export default function App() {
   const [showConfetti, setShowConfetti] = useState(false);
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
-  console.log(wordToGuess);
+  // console.log(wordToGuess);
 
   // get incorrect letters from guessed letters
   const incorrectLetters = guessedLetters.filter(
@@ -100,7 +97,6 @@ export default function App() {
   }, [guessedLetters]);
 
   // add event listener for click event on reset button
-
   const handleReset = () => {
     setGuessedLetters([]);
     setWordToGuess(getNewWord());
@@ -109,7 +105,6 @@ export default function App() {
 
   function handleWindowSize() {
     setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-    console.log(window.innerWidth, window.innerHeight);
   }
 
   useEffect(() => {
