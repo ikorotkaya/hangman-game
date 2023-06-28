@@ -13,7 +13,7 @@ import Confetti from "react-confetti";
 class LegacyWelcomeClass extends React.Component<{}, { [key: string]: any }> {
   render() {
     const { t }: any = this.props;
-    return <h2>{t("title")}</h2>;
+    return <h1>{t("title")}</h1>;
   }
 }
 
@@ -27,10 +27,10 @@ export default function App() {
   const getNewWord = () => {
     console.log(i18n.language);
     const words = t("wordList", { returnObjects: true }) as string[];
-    const lowercaseWords = words.map(word => word.toLowerCase());
-    console.log("lowerWords: ", lowercaseWords)
+    const lowercaseWords = words.map((word) => word.toLowerCase());
+    console.log("lowerWords: ", lowercaseWords);
     // console.log("words: ", words)
-    return lowercaseWords[Math.floor(Math.random() * lowercaseWords.length)]
+    return lowercaseWords[Math.floor(Math.random() * lowercaseWords.length)];
   };
 
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
@@ -127,14 +127,16 @@ export default function App() {
 
   return (
     <div className="app">
-      <div className="app__header">
-        <Welcome />
-        <div className="header__language">
+      <div className="app__navbar">
+        <div className="navbar__language">
           <DropdownLanguage />
         </div>
-        <div className="header__reset">
+        <div className="navbar__reset">
           <button onClick={() => handleReset()}>{t("reset")}</button>
         </div>
+      </div>
+      <div className="app__header">
+        <Welcome />
       </div>
       <div className="app__title">
         {showConfetti && <Confetti />}
