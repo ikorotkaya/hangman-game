@@ -129,12 +129,12 @@ export default function App() {
         <div className="navbar__language">
           <DropdownLanguage />
         </div>
+        <div className="app__header">
+          <Welcome />
+        </div>
         <div className="navbar__reset">
           <button onClick={() => handleReset()}>{t("reset")}</button>
         </div>
-      </div>
-      <div className="app__header">
-        <Welcome />
       </div>
       <div className="app__title">
         {showConfetti && <Confetti />}

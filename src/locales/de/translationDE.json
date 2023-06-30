@@ -3,7 +3,7 @@
   "language": "Deutsch",
   "keyboard_letters": [["q", "w", "e", "r", "t", "z", "u", "i", "o", "p", "ü"], ["a", "s", "d", "f", "g", "h", "j", "k", "l", "ö", "ä"], ["y", "x", "c", "v", "b", "n", "m"]],
   "reset": "Zurücksetzen",
-  "chooseLanguage": "Wählen Sie eine Sprache:",
+  "chooseLanguage": "Sprache:",
   "description": {
     "win": "Sie haben gewonnen! Aktualisieren Sie die Seite, um eine neue Runde zu starten",
     "lose": "Sie haben verloren! Aktualisieren Sie die Seite, um es erneut zu versuchen",

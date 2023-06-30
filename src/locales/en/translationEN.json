@@ -3,7 +3,7 @@
   "language": "English",
   "keyboard_letters": [["q","w","e","r","t","y","u","i","o","p"],["a","s","d","f","g", "h","j","k","l"],["z","x","c","v","b","n","m"]],
   "reset": "Reset",
-  "chooseLanguage": "Choose language:",
+  "chooseLanguage": "Language:",
   "description": {
     "win": "You won! Refresh the page to play again",
     "lose": "You lost! Refresh the page to try again",
