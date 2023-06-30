@@ -15,7 +15,7 @@ export function DropdownLanguage() {
   return (
     <div className="dropdown">
       <label className="dropdown-container">
-        <p className="dropdown-container__text">{t("chooseLanguage")}</p>
+        {/* <p className="dropdown-container__text">{t("chooseLanguage")}</p> */}
         <select
           className="dropdown-container__option"
           value={i18n.language}

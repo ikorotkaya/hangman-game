@@ -7,7 +7,7 @@ html {
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 body {
@@ -90,7 +90,6 @@ h1 {
   // color: black;
   // text-transform: lowercase;
   font-family: Roboto, sans-serif;
-  font-weight: 0;
   font-size: 14px;
   color: #fff;
   background-color: #0066CC;
@@ -129,20 +128,39 @@ h1 {
   border-radius: 10px;
   display: flex;
   gap: 20px;
+  align-items: center;
 
   &__text {
     margin: 0;
+    font-size: 14px;
   }
 
   &__option {
-    border-radius: 10px;
-    padding: 0 10px;
-    margin: 0%;
-    font-size: 12px;
-    font-family: "Poppins", sans-serif;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    color: #fff;
+    background-color: #0066CC;
+    padding: 10px 30px;
+    border: solid #0066cc 1px;
+    box-shadow: none;
+    border-radius: 50px;
+    transition : 1321ms;
+    transform: translateY(0);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
   }
 }
 
+.dropdown-container__option:hover {
+  transition : 1321ms;
+  padding: 10px 40px;
+  transform : translateY(-0px);
+  background-color: #fff;
+  color: #0066cc;
+  border: solid 1px #0066cc;
+}
 // Drawing
 
 .initial-drawing {
