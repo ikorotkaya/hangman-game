@@ -158,6 +158,25 @@ h1 {
   }
 }
 
+.zoom-in {
+  animation: zoom 1.2s infinite alternate;
+  animation-fill-mode: forwards;
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1); // Initial scale (no zoom)
+  }
+  
+  50% {
+    transform: scale(1.4); // Zoom in to 50%
+  }
+  
+  100% {
+    transform: scale(1); // Zoom out to 100%
+  }
+}
+
 .keyboard-container {
   margin-top: 20px;
   display: flex;

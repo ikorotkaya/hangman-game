@@ -110,8 +110,11 @@ export default function App() {
   useEffect(() => {
     if (isWinner) {
       setShowConfetti(true);
+      const wordElement = document.querySelector('.hangman-word') as HTMLElement;
+      wordElement.classList.add('zoom-in');
       setTimeout(() => {
         setShowConfetti(false);
+        wordElement.classList.remove('zoom-in');
       }, 6000);
     }
   }, [isWinner]);
