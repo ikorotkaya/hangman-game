@@ -9,7 +9,8 @@ const HEAD = (
       top: "50px",
       right: "-30px",
     }}
-    data-testid='body-part head'
+    data-testid='head'
+    role="body-part"
     key={"head"}
   />
 );
@@ -24,7 +25,8 @@ const BODY = (
       top: "120px",
       right: 0,
     }}
-    data-testid='body-part body'
+    data-testid='body'
+    role="body-part"
     key={"body"}    
   />
 );
@@ -41,7 +43,8 @@ const RIGHT_ARM = (
       rotate: "-30deg",
       transformOrigin: "left bottom",
     }}
-    data-testid='body-part right-arm'
+    data-testid='right-arm'
+    role="body-part"
     key={"right-arm"}
   />
 );
@@ -58,7 +61,8 @@ const LEFT_ARM = (
       rotate: "30deg",
       transformOrigin: "right bottom",
     }}
-    data-testid='body-part left-arm'
+    data-testid='left-arm'
+    role="body-part"
     key={"left-arm"}
   />
 );
@@ -75,7 +79,8 @@ const RIGHT_LEG = (
       rotate: "60deg",
       transformOrigin: "left bottom",
     }}
-    data-testid='body-part right-leg'
+    data-testid='right-leg'
+    role="body-part"
     key={"right-leg"}
   />
 );
@@ -92,7 +97,8 @@ const LEFT_LEG = (
       rotate: "-60deg",
       transformOrigin: "right bottom",
     }}
-    data-testid='body-part left-leg'
+    data-testid='left-leg'
+    role="body-part"
     key={"left-leg"}
   />
 );
