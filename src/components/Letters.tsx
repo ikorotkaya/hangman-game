@@ -12,7 +12,7 @@ export function Letters({
   return (
     <div className="letters-container">
       {wordToGuess.split("").map((letter, index) => (
-        <span className="letters-container__letter-block" key={index}>
+        <span className="letters-container__letter-block" data-testid="letter-block" key={index}>
           <span
             className="letters-container__letter"
             style={{
