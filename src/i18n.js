@@ -17,7 +17,8 @@ const resources = {
   },
 };
 
-i18n
+export const initI18n = () => {
+  i18n
   .use(Backend)
   .use(LanguageDetector)
   .use(initReactI18next) // bind react-i18next to the instance
@@ -30,5 +31,8 @@ i18n
       escapeValue: false, // not needed for react as it escapes by default
     },
   });
+}
+
+initI18n();
 
 export default i18n;

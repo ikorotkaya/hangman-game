@@ -17,6 +17,8 @@ export function Keyboard({
   const { t } = useTranslation();
 
   const keys: string[][] = t("keyboard_letters", { returnObjects: true });
+  console.log("--> keys")
+  console.log(keys)
 
   return (
     <div className="keyboard-container">
@@ -29,14 +31,14 @@ export function Keyboard({
               return (
                 <button
                   key={letter}
+                  role="keyboard-button"
+                  aria-label={letter}
                   className={`button ${isActive ? "active" : ""} ${
                     isInactive ? "inactive" : ""
                   }`}
                   disabled={disabled || isActive || isInactive}
                   onClick={() => addGuessedLetter(letter)}
-                >
-                  {letter}
-                </button>
+                >{letter}</button>
               );
             })}
           </div>
