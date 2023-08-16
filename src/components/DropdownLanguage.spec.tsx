@@ -18,7 +18,13 @@ describe("DropdownLanguage component", () => {
 
     expect(screen.getByRole("language", {name: "en"})).toBeDefined();
     expect(screen.getByRole("language", {name: "de"})).toBeDefined();
-
   });
-} );
+
+  test("renders the correct language names", () => {
+    render(<DropdownLanguage />);
+    expect(screen.getByText("English")).toBeDefined();
+    expect(screen.getByText("Deutsch")).toBeDefined();
+  });
+
+});
 
