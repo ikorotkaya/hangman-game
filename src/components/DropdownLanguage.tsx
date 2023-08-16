@@ -22,7 +22,7 @@ export function DropdownLanguage() {
           onChange={handleChange}
         >
           {Object.keys(i18n.options.resources).map((language, i) => (
-            <option value={language} key={i}>
+            <option value={language} key={i} role="language" aria-label={language}>
               {t("language", { lng: language })}
             </option>
           ))}
