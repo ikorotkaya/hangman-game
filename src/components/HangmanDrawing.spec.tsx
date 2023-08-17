@@ -20,4 +20,13 @@ describe("HangmanDrawing component", () => {
     expect(screen.getByTestId('right-arm')).toBeInTheDocument();
 
   });
+
+  test("renders parts in the correct order", () => {
+    render(<HangmanDrawing {...props} />);
+    const bodyParts = screen.getAllByRole("body-part");
+
+    expect(bodyParts[0]).toHaveAttribute("data-testid", "head");
+    expect(bodyParts[1]).toHaveAttribute("data-testid", "body");
+    expect(bodyParts[2]).toHaveAttribute("data-testid", "right-arm");
+  });
 });
