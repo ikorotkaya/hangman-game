@@ -18,6 +18,7 @@ export function DropdownLanguage() {
         {/* <p className="dropdown-container__text">{t("chooseLanguage")}</p> */}
         <select
           className="dropdown-container__option"
+          aria-label="language"
           value={i18n.language}
           onChange={handleChange}
         >
