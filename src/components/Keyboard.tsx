@@ -31,7 +31,7 @@ export function Keyboard({
               return (
                 <button
                   key={letter}
-                  role="keyboard-button"
+                  role="button"
                   aria-label={letter}
                   className={`button ${isActive ? "active" : ""} ${
                     isInactive ? "inactive" : ""
