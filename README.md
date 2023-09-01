@@ -1,6 +1,6 @@
 # Hangman Game 
 
-![Hangman game screenshots](https://github.com/ikorotkaya/hangman_typescript_react/assets/91027118/dc00cfd1-d2f7-42f2-a905-a4285b51dcdb)
+![Hangman game screenshots](https://raw.githubusercontent.com/ikorotkaya/hangman_typescript_react/ikorotkaya-patch-1/hangman.gif)
 
 ![GitHub License MIT](https://img.shields.io/github/license/sqlhabit/sql_schema_visualizer?color=%2347A3F3)
 
