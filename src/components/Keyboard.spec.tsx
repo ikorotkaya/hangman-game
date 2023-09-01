@@ -28,7 +28,7 @@ describe("Keyboard component", () => {
     expect(screen.getByRole("button", { name: "a" })).toBeDefined();
     expect(screen.getByRole("button", { name: "b" })).toBeDefined();
 
-  //   // Verify that the active and inactive buttons have the correct class names
+    // Verify that the active and inactive buttons have the correct class names
 
     // Verify that the disabled button is disabled
   });
