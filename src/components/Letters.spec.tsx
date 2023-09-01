@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen } from "@testing-library/react";
 
 import { Letters } from "./Letters";
 
@@ -16,5 +16,4 @@ describe("Letters component", () => {
 
     expect(letterBlocks).toHaveLength(props.wordToGuess.length);
   });
-
 });
