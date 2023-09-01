@@ -1,4 +1,4 @@
-# Hangman React App
+# Hangman Game 
 
 ![Hangman game screenshots](https://github.com/ikorotkaya/hangman_typescript_react/assets/91027118/dc00cfd1-d2f7-42f2-a905-a4285b51dcdb)
 
