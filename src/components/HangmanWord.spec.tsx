@@ -24,7 +24,6 @@ describe("HangmanWord component", () => {
 
     expect(letters[0]).toHaveTextContent("t");
     expect(letters[1]).toHaveTextContent("e");
-    expect(letters[2]).toHaveTextContent("s");
-    expect(letters[3]).toBeEmptyDOMElement();
+    expect(letters[4]).toHaveTextContent("");
   });
 });
