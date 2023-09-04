@@ -17,8 +17,6 @@ export function Keyboard({
   const { t } = useTranslation();
 
   const keys: string[][] = t("keyboard_letters", { returnObjects: true });
-  console.log("--> keys")
-  console.log(keys)
 
   return (
     <div className="keyboard-container">

@@ -1,5 +1,3 @@
-import renderWithi18next from "./renderWithI18n";
-import { getByText, getByRole } from "@testing-library/react";
 import { render, screen } from "@testing-library/react";
 import { initI18n } from "../i18n";
 
