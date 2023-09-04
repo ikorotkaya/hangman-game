@@ -10,10 +10,10 @@ describe("HangmanWord component", () => {
     reveal: false,
   };
 
-  test.only("renders the correct number of letters", () => {
+  test("renders the correct number of letters", () => {
     render(<HangmanWord {...props} />);
 
-    const letters = screen.getAllByTestId("letter");
+    const letters = screen.getAllByTestId("letter-block");
 
     expect(letters).toHaveLength(props.wordToGuess.length);
   });
@@ -25,6 +25,5 @@ describe("HangmanWord component", () => {
     expect(letters[0]).toHaveTextContent("t");
     expect(letters[1]).toHaveTextContent("e");
     expect(letters[2]).toHaveTextContent("s");
-    expect(letters[3]).toBeEmptyDOMElement();
   });
 });

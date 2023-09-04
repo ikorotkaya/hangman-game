@@ -3,19 +3,12 @@ import { HangmanDrawing } from "./components/HangmanDrawing";
 import { HangmanWord } from "./components/HangmanWord";
 import { Keyboard } from "./components/Keyboard";
 import { DropdownLanguage } from "./components/DropdownLanguage";
+import LegacyWelcomeClass from "./components/LegacyWelcomeClass";
 
 import { useTranslation, withTranslation } from "react-i18next";
 
 import "./App.scss";
 import Confetti from "react-confetti";
-
-// use higher-order component (HOC) for class based components
-class LegacyWelcomeClass extends React.Component<{}, { [key: string]: any }> {
-  render() {
-    const { t }: any = this.props;
-    return <h1>{t("title")}</h1>;
-  }
-}
 
 // allows the component to render the translated text using t("title") in the render() method
 const Welcome = withTranslation()(LegacyWelcomeClass);
@@ -34,8 +27,6 @@ export default function App() {
   const [wordToGuess, setWordToGuess] = useState(getNewWord());
   const [showConfetti, setShowConfetti] = useState(false);
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
-
-  // console.log(wordToGuess);
 
   // get incorrect letters from guessed letters
   const incorrectLetters = guessedLetters.filter(
@@ -56,7 +47,6 @@ export default function App() {
     [guessedLetters, isLoser, isWinner]
   );
 
-  // add event listener for keypress event
   useEffect(() => {
     // add event listener for keypress event
     const handler = (e: KeyboardEvent) => {
@@ -78,8 +68,8 @@ export default function App() {
     handleReset();
   }, [i18n.language]);
 
-  // add event listener for enter key
   useEffect(() => {
+    // add event listener for enter key
     const handler = (e: KeyboardEvent) => {
       const key = e.key;
       if (key !== "Enter") return;
@@ -110,11 +100,13 @@ export default function App() {
   useEffect(() => {
     if (isWinner) {
       setShowConfetti(true);
-      const wordElement = document.querySelector('.hangman-word') as HTMLElement;
-      wordElement.classList.add('zoom-in');
+      const wordElement = document.querySelector(
+        ".hangman-word"
+      ) as HTMLElement;
+      wordElement.classList.add("zoom-in");
       setTimeout(() => {
         setShowConfetti(false);
-        wordElement.classList.remove('zoom-in');
+        wordElement.classList.remove("zoom-in");
       }, 6000);
     }
   }, [isWinner]);
