@@ -6,6 +6,7 @@ import { DropdownLanguage } from "./components/DropdownLanguage";
 import LegacyWelcomeClass from "./components/LegacyWelcomeClass";
 
 import { useTranslation, withTranslation } from "react-i18next";
+import { throttle } from "@github/mini-throttle";
 
 import "./App.scss";
 import Confetti from "react-confetti";
@@ -26,7 +27,7 @@ export default function App() {
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
   const [wordToGuess, setWordToGuess] = useState(getNewWord());
   const [showConfetti, setShowConfetti] = useState(false);
-  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+  const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
 
   // get incorrect letters from guessed letters
   const incorrectLetters = guessedLetters.filter(
@@ -90,12 +91,8 @@ export default function App() {
   const handleReset = () => {
     setGuessedLetters([]);
     setWordToGuess(getNewWord());
-    setShowConfetti(false);
-  };
-
-  function handleWindowSize() {
-    setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-  }
+    setShowConfetti(true);
+  };  
 
   useEffect(() => {
     if (isWinner) {
@@ -109,10 +106,21 @@ export default function App() {
         wordElement.classList.remove("zoom-in");
       }, 6000);
     }
-  }, [isWinner]);
+  }, [isWinner]);  
 
   useEffect(() => {
-    window.onresize = () => handleWindowSize();
+    const handleResize = throttle(() => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }, 1000);
+    
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return (
@@ -129,7 +137,7 @@ export default function App() {
         </div>
       </div>
       <div className="app__title">
-        {showConfetti && <Confetti />}
+        {showConfetti && <Confetti width={windowSize.width} height={windowSize.height} />}
         {isWinner && t("description.win")}
         {isLoser && t("description.lose")}
         {!isLoser && !isWinner && t("description.play")}
