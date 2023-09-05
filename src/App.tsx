@@ -91,7 +91,7 @@ export default function App() {
   const handleReset = () => {
     setGuessedLetters([]);
     setWordToGuess(getNewWord());
-    setShowConfetti(true);
+    setShowConfetti(false);
   };  
 
   useEffect(() => {

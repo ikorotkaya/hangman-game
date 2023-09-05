@@ -1,6 +1,9 @@
 import { CSSProperties, Key } from "react";
 
-const createBodyPart = (styles: CSSProperties | undefined, key: Key | null | undefined) => (
+const createBodyPart = (
+  styles: CSSProperties | undefined,
+  key: Key | null | undefined
+) => (
   <div
     style={{
       position: "absolute",
@@ -13,9 +16,9 @@ const createBodyPart = (styles: CSSProperties | undefined, key: Key | null | und
 );
 
 const commonStyles = {
-  width: "10px",
-  height: "100px",
   background: "black",
+  width: "100px",
+  height: "10px",
 };
 
 const HEAD = createBodyPart(
@@ -32,7 +35,9 @@ const HEAD = createBodyPart(
 
 const BODY = createBodyPart(
   {
-    ...commonStyles,
+    width: "10px",
+    height: "100px",
+    background: "black",
     top: "120px",
     right: 0,
   },
@@ -66,7 +71,7 @@ const RIGHT_LEG = createBodyPart(
     ...commonStyles,
     top: "210px",
     right: "-90px",
-    rotate: "60deg",  
+    rotate: "60deg",
     transformOrigin: "left bottom",
   },
   "right-leg"
