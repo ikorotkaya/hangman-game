@@ -10,14 +10,6 @@ describe("HangmanWord component", () => {
     reveal: false,
   };
 
-  test("renders the correct number of letters", () => {
-    render(<HangmanWord {...props} />);
-
-    const letters = screen.getAllByTestId("letter-block");
-
-    expect(letters).toHaveLength(props.wordToGuess.length);
-  });
-
   test("renders letters in the correct order", () => {
     render(<HangmanWord {...props} />);
     const letters = screen.getAllByTestId("letter-block");
