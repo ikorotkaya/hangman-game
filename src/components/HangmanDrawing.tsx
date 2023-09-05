@@ -12,6 +12,12 @@ const createBodyPart = (styles: CSSProperties | undefined, key: Key | null | und
   />
 );
 
+const commonStyles = {
+  width: "10px",
+  height: "100px",
+  background: "black",
+};
+
 const HEAD = createBodyPart(
   {
     width: "70px",
@@ -26,9 +32,7 @@ const HEAD = createBodyPart(
 
 const BODY = createBodyPart(
   {
-    width: "10px",
-    height: "100px",
-    background: "black",
+    ...commonStyles,
     top: "120px",
     right: 0,
   },
@@ -37,9 +41,7 @@ const BODY = createBodyPart(
 
 const RIGHT_ARM = createBodyPart(
   {
-    width: "100px",
-    height: "10px",
-    background: "black",
+    ...commonStyles,
     top: "150px",
     right: "-100px",
     rotate: "-30deg",
@@ -50,9 +52,7 @@ const RIGHT_ARM = createBodyPart(
 
 const LEFT_ARM = createBodyPart(
   {
-    width: "100px",
-    height: "10px",
-    background: "black",
+    ...commonStyles,
     top: "150px",
     right: "10px",
     rotate: "30deg",
@@ -63,9 +63,7 @@ const LEFT_ARM = createBodyPart(
 
 const RIGHT_LEG = createBodyPart(
   {
-    width: "100px",
-    height: "10px",
-    background: "black",
+    ...commonStyles,
     top: "210px",
     right: "-90px",
     rotate: "60deg",  
@@ -76,9 +74,7 @@ const RIGHT_LEG = createBodyPart(
 
 const LEFT_LEG = createBodyPart(
   {
-    width: "100px",
-    height: "10px",
-    background: "black",
+    ...commonStyles,
     top: "210px",
     right: 0,
     rotate: "-60deg",
