@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sora&display=swap");
 
 html {
   box-sizing: border-box;
@@ -12,9 +13,14 @@ html {
 
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: "Sora", sans-serif;
   font-display: swap;
   color: #1f2933;
+}
+
+button,
+.dropdown-container__option {
+  font-family: "Sora", sans-serif;
 }
 
 body,
@@ -33,31 +39,35 @@ h1 {
 }
 
 .app {
-  max-width: 1000px;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin: 0 auto;
   align-items: center;
-  background-color: #ffffff;
-
-  border-radius: 30px;
-  padding: 4rem;
+  gap: 1rem;
+  
+  margin: 0 auto;
+  max-width: 800px;
 
   &__navbar {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    width: 100%;
     gap: 1rem;
+    align-items: center;
+    
+    width: 100%;
+    border-radius: 30px;
+    padding: 2rem;
+
+    background-color: #ffffff;
   }
 
   &__title {
-    font-size: 1.5rem;
-    text-align: center;
     width: 100%;
-    font-weight: bold;
+
     border-radius: 30px;
+
+    font-size: 1rem;
+    text-align: center;
+    font-weight: bold;
   }
 
   &__keyboard {
@@ -67,9 +77,23 @@ h1 {
   &__header {
     display: flex;
     justify-content: center;
+
     width: 100%;
   }
 
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    width: 100%;
+
+    border-radius: 30px;
+    padding: 3rem;
+    
+    background-color: #ffffff;
+  }
 }
 
 // Navbar
@@ -80,23 +104,26 @@ h1 {
 }
 
 .navbar__reset button {
-  font-family: Roboto, sans-serif;
+  transform: translateY(0);
+  
+  transition: 1321ms;
+  
+  box-shadow: none;
+  border: solid #0066cc 2px;
+  border-radius: 50px;
+  padding: 10px 30px;
+  
+  background-color: #0066cc;
+  cursor: pointer;
+  
   font-size: 14px;
   color: #fff;
-  background-color: #0066cc;
-  padding: 10px 30px;
-  border: solid #0066cc 2px;
-  box-shadow: none;
-  border-radius: 50px;
-  transition: 1321ms;
-  transform: translateY(0);
-  cursor: pointer;
 }
 
 .navbar__reset button:hover {
+  transform: translateY(-0px);
   transition: 1321ms;
   padding: 10px 40px;
-  transform: translateY(-0px);
   background-color: #fff;
   color: #0066cc;
 }
@@ -104,32 +131,33 @@ h1 {
 /* Dropdown Button */
 
 .dropdown-container {
-  color: rgb(0, 0, 0);
-  padding: 5px;
-  font-size: 14px;
-  border: none;
-  border-radius: 10px;
   display: flex;
   gap: 20px;
   align-items: center;
 
+  border: none;
+  border-radius: 10px;
+  
+  font-size: 14px;
+  color: rgb(0, 0, 0);
+
   &__text {
     margin: 0;
+
     font-size: 14px;
   }
 
   &__option {
-    font-family: Roboto, sans-serif;
+    transform: translateY(0);
+    transition: 1321ms;
+    box-shadow: none;
+    border: solid #0066cc 2px;
+    border-radius: 50px;
+    padding: 10px 30px;
+    background-color: #0066cc;
+    cursor: pointer;
     font-size: 14px;
     color: #fff;
-    background-color: #0066cc;
-    padding: 10px 30px;
-    border: solid #0066cc 2px;
-    box-shadow: none;
-    border-radius: 50px;
-    transition: 1321ms;
-    transform: translateY(0);
-    cursor: pointer;
   }
 }
 

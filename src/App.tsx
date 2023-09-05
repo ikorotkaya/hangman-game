@@ -27,7 +27,10 @@ export default function App() {
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
   const [wordToGuess, setWordToGuess] = useState(getNewWord());
   const [showConfetti, setShowConfetti] = useState(false);
-  const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
 
   // get incorrect letters from guessed letters
   const incorrectLetters = guessedLetters.filter(
@@ -92,7 +95,7 @@ export default function App() {
     setGuessedLetters([]);
     setWordToGuess(getNewWord());
     setShowConfetti(false);
-  };  
+  };
 
   useEffect(() => {
     if (isWinner) {
@@ -106,7 +109,7 @@ export default function App() {
         wordElement.classList.remove("zoom-in");
       }, 6000);
     }
-  }, [isWinner]);  
+  }, [isWinner]);
 
   useEffect(() => {
     const handleResize = throttle(() => {
@@ -115,11 +118,11 @@ export default function App() {
         height: window.innerHeight,
       });
     }, 1000);
-    
-    window.addEventListener('resize', handleResize);
+
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -138,28 +141,32 @@ export default function App() {
       </div>
 
       <div className="app__title">
-        {showConfetti && <Confetti width={windowSize.width} height={windowSize.height} />}
+        {showConfetti && (
+          <Confetti width={windowSize.width} height={windowSize.height} />
+        )}
         {isWinner && t("description.win")}
         {isLoser && t("description.lose")}
         {!isLoser && !isWinner && t("description.play")}
       </div>
 
-      <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
-      <HangmanWord
-        reveal={isLoser}
-        guessedLetters={guessedLetters}
-        wordToGuess={wordToGuess}
-      />
-      
-      <div className="app__keyboard">
-        <Keyboard
-          disabled={isLoser || isWinner}
-          activeLetters={guessedLetters.filter((letter) =>
-            wordToGuess.includes(letter)
-          )}
-          inactiveLetters={incorrectLetters}
-          addGuessedLetter={addGuessedLetter}
+      <div className="app__container">
+        <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
+        <HangmanWord
+          reveal={isLoser}
+          guessedLetters={guessedLetters}
+          wordToGuess={wordToGuess}
         />
+
+        <div className="app__keyboard">
+          <Keyboard
+            disabled={isLoser || isWinner}
+            activeLetters={guessedLetters.filter((letter) =>
+              wordToGuess.includes(letter)
+            )}
+            inactiveLetters={incorrectLetters}
+            addGuessedLetter={addGuessedLetter}
+          />
+        </div>
       </div>
     </div>
   );
