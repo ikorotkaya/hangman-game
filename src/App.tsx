@@ -136,18 +136,21 @@ export default function App() {
           <button onClick={() => handleReset()}>{t("reset")}</button>
         </div>
       </div>
+
       <div className="app__title">
         {showConfetti && <Confetti width={windowSize.width} height={windowSize.height} />}
         {isWinner && t("description.win")}
         {isLoser && t("description.lose")}
         {!isLoser && !isWinner && t("description.play")}
       </div>
+
       <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
       <HangmanWord
         reveal={isLoser}
         guessedLetters={guessedLetters}
         wordToGuess={wordToGuess}
       />
+      
       <div className="app__keyboard">
         <Keyboard
           disabled={isLoser || isWinner}
