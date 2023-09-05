@@ -6,7 +6,7 @@ const createBodyPart = (styles: CSSProperties | undefined, key: Key | null | und
       position: "absolute",
       ...styles,
     }}
-    data-testid={`body-part-${key}`}
+    data-testid={`${key}`}
     role="body-part"
     key={key}
   />
